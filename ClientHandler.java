@@ -36,7 +36,7 @@ public class ClientHandler implements Runnable {
             ChatServer.clients.put(username, this);
 
             log(username + " connected.");
-            broadcastMessage("🔔 " + username + " joined the chat!");
+            broadcastMessage(" " + username + " joined the chat!");
 
             String message;
             while ((message = in.readLine()) != null) {
@@ -47,7 +47,7 @@ public class ClientHandler implements Runnable {
         } finally {
             try {
                 ChatServer.clients.remove(username);
-                broadcastMessage("🔔 " + username + " left the chat!");
+                broadcastMessage(" " + username + " left the chat!");
                 log(username + " connection closed.");
                 socket.close();
             } catch (IOException e) {
@@ -102,3 +102,4 @@ public class ClientHandler implements Runnable {
         System.out.println("[" + time + "] " + message);
     }
 }
+
